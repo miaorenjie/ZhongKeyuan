@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), ActionBarController {
         var month: Int =c.get(Calendar.MONTH)
         month+=1
         var day:Int=c.get(Calendar.DAY_OF_MONTH)
-        currentDate.setText(month.toString()+"月"+day.toString()+"日")
+        currentDate.setText("${month}月${day}日")
     }
 
     override fun requestNoActionBar() {
@@ -76,7 +76,6 @@ class MainActivity : AppCompatActivity(), ActionBarController {
         {
             Log.e("asd","success")
             LocationUtil.getLocation(this)
-
         }
     }
 }

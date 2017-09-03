@@ -15,8 +15,10 @@ object LocationUtil {
     fun getLocation(activity: Activity):Location{
 
         var locationManager:LocationManager= activity.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        val location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
-        Log.e("asd",location.altitude.toString())
+        var location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+        if(location==null)
+            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+        Log.e("asd",location?.altitude.toString())
         return location
     }
 }
